@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { INITAL_STATE } from "../constans/constans";
-import { useSelector } from "react-redux";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -17,10 +16,8 @@ const contactsSlice = createSlice({
     },
   },
 });
-export const selectContacts = () => {
-  const items = useSelector((state) => state.contacts.items);
-  return items;
-};
+export const selectContacts = (state) => state.contacts.items;
+
 export const { addContact, deleteContact } = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;
